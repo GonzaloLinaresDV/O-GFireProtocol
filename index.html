@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O&G Control de Principios de Incendio | Yacimientos Oil & Gas</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js para gráficos analíticos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Tipografía Inter & Iconos Lucide -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Archivo CSS Modular -->
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        oil: { 950: '#0a0d14', 900: '#111827', 800: '#1f2937' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#0b0f17] text-gray-100 min-h-screen selection:bg-amber-500 selection:text-black">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[#0b0f17]/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-r from-amber-600 to-amber-500 text-black font-extrabold px-3 py-2 rounded-lg text-lg tracking-wider shadow-lg shadow-amber-600/20">
+                    O&G
+                </div>
+                <div>
+                    <h1 class="font-bold text-base sm:text-lg tracking-tight text-white flex items-center gap-2">
+                        Control de Principios de Incendio
+                    </h1>
+                    <p class="text-xs text-amber-400 font-medium tracking-wide">YACIMIENTOS OIL & GAS • NORMATIVA NFPA & API RP 14G</p>
+                </div>
+            </div>
+            <nav class="hidden lg:flex items-center space-x-6 text-xs font-semibold text-gray-300">
+                <a href="#normativa" class="hover:text-amber-400 transition-colors">Normativa Ex</a>
+                <a href="#tecnologia" class="hover:text-amber-400 transition-colors">Tecnología y Agentes</a>
+                <a href="#ubicacion" class="hover:text-amber-400 transition-colors">Ubicación NFPA 10</a>
+                <a href="#protocolo" class="hover:text-amber-400 transition-colors">Protocolo Táctico</a>
+                <a href="#mantenimiento" class="hover:text-amber-400 transition-colors">Mantenimiento</a>
+            </nav>
+            <button id="menu-btn" class="lg:hidden text-gray-300 hover:text-white p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-900 border-b border-gray-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#normativa" class="block py-2 text-sm text-gray-300 hover:text-amber-400">Normativa Ex</a>
+            <a href="#tecnologia" class="block py-2 text-sm text-gray-300 hover:text-amber-400">Tecnología y Agentes</a>
+            <a href="#ubicacion" class="block py-2 text-sm text-gray-300 hover:text-amber-400">Ubicación NFPA 10</a>
+            <a href="#protocolo" class="block py-2 text-sm text-gray-300 hover:text-amber-400">Protocolo Táctico</a>
+            <a href="#mantenimiento" class="block py-2 text-sm text-gray-300 hover:text-amber-400">Mantenimiento</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-12 pb-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden border border-gray-800">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                    <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i>
+                    PROTOCOLO DE RESPUESTA INCIPIENTE EN UPSTREAM
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight max-w-4xl mb-6 leading-tight">
+                    Gestión Táctica de Extintores en Escenarios de Alto Riesgo
+                </h2>
+                <p class="text-gray-300 text-base sm:text-lg max-w-4xl mb-10 leading-relaxed">
+                    En las instalaciones de exploración y producción petrolera, los incendios incipientes pueden escalar rápidamente hacia catástrofes tridimensionales. Esta infografía consolida el marco técnico de selección de agentes, criterios geométricos de distribución según NFPA 10 y secuencias operativas de ataque con extintores por cartucho.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-gray-900/80 border border-gray-800/80 rounded-xl p-4">
+                        <span class="text-xs text-gray-400 uppercase font-semibold tracking-wider block mb-1">Estándar Principal</span>
+                        <span class="text-amber-400 font-bold text-base">NFPA 10 / API RP 14G</span>
+                    </div>
+                    <div class="bg-gray-900/80 border border-gray-800/80 rounded-xl p-4">
+                        <span class="text-xs text-gray-400 uppercase font-semibold tracking-wider block mb-1">Agente Recomendado</span>
+                        <span class="text-amber-400 font-bold text-base">Purple-K (PKP)</span>
+                    </div>
+                    <div class="bg-gray-900/80 border border-gray-800/80 rounded-xl p-4">
+                        <span class="text-xs text-gray-400 uppercase font-semibold tracking-wider block mb-1">Mecanismo Preferido</span>
+                        <span class="text-amber-400 font-bold text-base">Cartucho Externo</span>
+                    </div>
+                    <div class="bg-gray-900/80 border border-gray-800/80 rounded-xl p-4">
+                        <span class="text-xs text-gray-400 uppercase font-semibold tracking-wider block mb-1">Respuesta Clave</span>
+                        <span class="text-amber-400 font-bold text-base">Aislamiento ESD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 pb-24">
+
+        <!-- SECTION 1: Marco Regulatorio -->
+        <section id="normativa" class="glass-card rounded-3xl p-6 sm:p-10 border border-gray-800">
+            <div class="flex items-center space-x-3 text-amber-500 mb-3">
+                <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Marco Regulatorio y Seguridad Eléctrica</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+                1. Normativa Internacional y Clasificación de Áreas Explosivas (IEC / ATEX)
+            </h3>
+            <p class="text-gray-300 text-sm sm:text-base max-w-5xl mb-8 leading-relaxed">
+                La presencia constante de gas metano, vapores de condensado y petróleo en plantas de tratamiento y baterías exige una integración estricta entre las normas NFPA (10, 30, 11) y la clasificación de zonas Ex según IEC 60079-10-1.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-6 space-y-4">
+                    <div class="bg-gray-900/90 border border-red-500/30 rounded-2xl p-5 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-red-500"></div>
+                        <h4 class="font-bold text-white flex items-center gap-2 mb-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                            Zona 0 (Atmósfera Explosiva Continua)
+                        </h4>
+                        <p class="text-sm text-gray-300">
+                            <strong class="text-red-400">Restricción Absoluta:</strong> Prohibida la instalación fija de extintores en el interior del recinto. Emplazamiento exterior sobre rutas seguras.
+                        </p>
+                    </div>
+                    <div class="bg-gray-900/90 border border-amber-500/30 rounded-2xl p-5 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-amber-500"></div>
+                        <h4 class="font-bold text-white flex items-center gap-2 mb-2">
+                            <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                            Zona 1 (Atmósfera Explosiva Probable)
+                        </h4>
+                        <p class="text-sm text-gray-300">
+                            Requiere gabinetes anticorrosivos ignífugos/antiestáticos. Equipamiento eléctrico con certificación Ex d / Ex e.
+                        </p>
+                    </div>
+                    <div class="bg-gray-900/90 border border-blue-500/30 rounded-2xl p-5 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-blue-500"></div>
+                        <h4 class="font-bold text-white flex items-center gap-2 mb-2">
+                            <span class="w-3 h-3 rounded-full bg-blue-500 inline-block"></span>
+                            Zona 2 (Atmósfera Explosiva Poco Probable)
+                        </h4>
+                        <p class="text-sm text-gray-300">
+                            Ubicación estratégica priorizando vías de evacuación rápida y salidas de emergencia en plantas de compresores.
+                        </p>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 bg-gray-900/90 border border-gray-800 p-6 rounded-2xl flex flex-col items-center justify-center">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Distribución de Restricciones Operativas por Zona Ex</span>
+                    <div class="w-full max-w-xs h-64 relative">
+                        <canvas id="zoneDonutChart"></canvas>
+                    </div>
+                    <span class="text-xs text-gray-400 italic mt-4 text-center">Gráfico 1: Porcentaje comparativo de requisitos de protección física.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Ingeniería de Extinción -->
+        <section id="tecnologia" class="glass-card rounded-3xl p-6 sm:p-10 border border-gray-800">
+            <div class="flex items-center space-x-3 text-amber-500 mb-3">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Ingeniería de Extinción y Selección Tecnológica</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+                2. Agentes Extintores y Extintores por Cartucho Extractor vs. Presión Contenida
+            </h3>
+            <p class="text-gray-300 text-sm sm:text-base max-w-5xl mb-8 leading-relaxed">
+                Las severas condiciones de campo (vibraciones y cambios térmicos) exigen extintores operados por cartucho externo cargados con Purple-K para fuegos Clase B y C.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-gray-900/90 border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <h4 class="font-bold text-white text-base mb-1">Rendimiento: Cartucho Externo vs. Presión Contenida</h4>
+                        <p class="text-xs text-gray-400 mb-4">Evaluación multidimensional de confiabilidad en Upstream.</p>
+                    </div>
+                    <div class="w-full h-72 relative flex items-center justify-center">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                    <div class="flex items-center justify-center gap-6 mt-4 text-xs">
+                        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-orange-500 rounded-sm"></span><span class="text-gray-300 font-medium">Operado por Cartucho</span></div>
+                        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-blue-500 rounded-sm"></span><span class="text-gray-300 font-medium">Presión Contenida</span></div>
+                    </div>
+                </div>
+                <div class="bg-gray-900/90 border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <h4 class="font-bold text-white text-base mb-1">Eficacia de Agentes por Clase de Fuego en Yacimiento</h4>
+                        <p class="text-xs text-gray-400 mb-4">Score de capacidad extintora (0 a 100%).</p>
+                    </div>
+                    <div class="w-full h-72 relative flex items-center justify-center">
+                        <canvas id="efficacyBarChart"></canvas>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-center gap-4 mt-4 text-xs">
+                        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-purple-500 rounded-sm"></span><span class="text-gray-300 font-medium">Purple-K (PKP)</span></div>
+                        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-amber-500 rounded-sm"></span><span class="text-gray-300 font-medium">PQS ABC</span></div>
+                        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-blue-500 rounded-sm"></span><span class="text-gray-300 font-medium">CO2</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Geometría de Ubicación -->
+        <section id="ubicacion" class="glass-card rounded-3xl p-6 sm:p-10 border border-gray-800">
+            <div class="flex items-center space-x-3 text-amber-500 mb-3">
+                <i data-lucide="ruler" class="w-6 h-6"></i>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Geometría de Ubicación y Montaje Ergonómico</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+                3. Reglas de Distancia Caminable y Alturas de Colocación (NFPA 10)
+            </h3>
+            <p class="text-gray-300 text-sm sm:text-base max-w-5xl mb-8 leading-relaxed">
+                Las distancias especificadas por NFPA 10 se miden a lo largo de las rutas de tránsito caminables reales (pasillos, pasarelas), no en línea recta.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-900/90 border border-gray-800 rounded-2xl p-6 flex flex-col justify-between text-center">
+                    <div>
+                        <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-amber-400">
+                            <i data-lucide="footprints" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-400 block mb-1">Riesgo Clase A</span>
+                        <div class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Máx. 22,9 m</div>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed border-t border-gray-800 pt-4 mt-2">Para oficinas y talleres. Distancia lineal caminable.</p>
+                </div>
+                <div class="bg-gray-900/90 border border-gray-800 rounded-2xl p-6 flex flex-col justify-between text-center">
+                    <div>
+                        <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-amber-400">
+                            <i data-lucide="fuel" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-400 block mb-1">Riesgo Clase B (Procesos)</span>
+                        <div class="text-2xl sm:text-3xl font-extrabold text-white mb-3">9,14 m – 15,25 m</div>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed border-t border-gray-800 pt-4 mt-2">Para colectores, bombas y tanques.</p>
+                </div>
+                <div class="bg-gray-900/90 border border-gray-800 rounded-2xl p-6 flex flex-col justify-between text-center">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-blue-400">
+                            <i data-lucide="arrow-up-down" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-blue-400 block mb-1">Altura (Peso ≤ 18 kg)</span>
+                        <div class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Máx. 1,52 m</div>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed border-t border-gray-800 pt-4 mt-2">Medido desde el suelo hasta la parte superior.</p>
+                </div>
+                <div class="bg-gray-900/90 border border-gray-800 rounded-2xl p-6 flex flex-col justify-between text-center">
+                    <div>
+                        <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-emerald-400">
+                            <i data-lucide="layout-template" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 block mb-1">Despeje del Suelo</span>
+                        <div class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Mín. 10 cm</div>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed border-t border-gray-800 pt-4 mt-2">Espacio libre para evitar condensación o corrosión.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Protocolo Táctico -->
+        <section id="protocolo" class="glass-card rounded-3xl p-6 sm:p-10 border border-gray-800">
+            <div class="flex items-center space-x-3 text-amber-500 mb-3">
+                <i data-lucide="zap" class="w-6 h-6"></i>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Procedimiento de Operación en Campo</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+                4. Protocolo Operativo Táctico y Secuencia JAAB / PASS
+            </h3>
+            <p class="text-gray-300 text-sm sm:text-base max-w-5xl mb-8 leading-relaxed">
+                Ante un principio de incendio en equipos presurizados, la primera acción nunca es atacar las llamas directas, sino aislar la fuente de combustible mediante ESD.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+                <div class="bg-gray-900/90 border border-gray-800 rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-amber-500"></div>
+                    <div>
+                        <span class="text-xs font-bold text-amber-400 block mb-2">PASO 01</span>
+                        <h4 class="font-bold text-white text-base mb-2">Aislamiento ESD</h4>
+                        <p class="text-xs text-gray-300">Pulsar Alerta e Interrumpir flujo de gas/petróleo.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900/90 border border-gray-800 rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-amber-500"></div>
+                    <div>
+                        <span class="text-xs font-bold text-amber-400 block mb-2">PASO 02</span>
+                        <h4 class="font-bold text-white text-base mb-2">Posición a Favor del Viento</h4>
+                        <p class="text-xs text-gray-300">Ubicarse con el viento a la espalda para alejar calor.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900/90 border border-gray-800 rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
+                    <div>
+                        <span class="text-xs font-bold text-blue-400 block mb-2">PASO 03</span>
+                        <h4 class="font-bold text-white text-base mb-2">Percusión / Activación</h4>
+                        <p class="text-xs text-gray-300">Retirar seguro y percutir botellín de $N_2$.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900/90 border border-gray-800 rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-indigo-500"></div>
+                    <div>
+                        <span class="text-xs font-bold text-indigo-400 block mb-2">PASO 04</span>
+                        <h4 class="font-bold text-white text-base mb-2">Método JAAB / Barrido</h4>
+                        <p class="text-xs text-gray-300">Aplanar llama apuntando a la base en abanico.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900/90 border border-gray-800 rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div>
+                    <div>
+                        <span class="text-xs font-bold text-emerald-400 block mb-2">PASO 05</span>
+                        <h4 class="font-bold text-white text-base mb-2">Retiro Táctico</h4>
+                        <p class="text-xs text-gray-300">Retroceder de espaldas vigilando re-ignición.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-red-950/30 border border-red-500/40 rounded-2xl p-5 flex items-start space-x-4">
+                <div class="text-red-400 mt-0.5"><i data-lucide="alert-triangle" class="w-6 h-6"></i></div>
+                <div>
+                    <h5 class="font-bold text-red-300 text-sm mb-1">Regla Crítica de Evacuación Operativa:</h5>
+                    <p class="text-xs sm:text-sm text-gray-300">
+                        Si el fuego no se extingue tras agotar un extintor completo (15-30s), abortar inmediatamente la maniobra y evacuar al punto de encuentro seguro.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Mantenimiento -->
+        <section id="mantenimiento" class="glass-card rounded-3xl p-6 sm:p-10 border border-gray-800">
+            <div class="flex items-center space-x-3 text-amber-500 mb-3">
+                <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Aseguramiento de Confiabilidad y Calidad</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+                5. Programa Integrado de Mantenimiento y Ensayos Hidrostáticos
+            </h3>
+            <p class="text-gray-300 text-sm sm:text-base max-w-5xl mb-8 leading-relaxed">
+                Ciclo de control preventivo dividido en inspección mensual, mantenimiento anual y prueba hidrostática periódica.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 bg-gray-900/90 border border-gray-800 p-6 rounded-2xl">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-4">Frecuencia de Pruebas y Servicios de Mantenimiento</span>
+                    <div class="w-full h-72 relative flex items-center justify-center">
+                        <canvas id="maintenanceBarChart"></canvas>
+                    </div>
+                    <span class="text-xs text-gray-400 italic block mt-4 text-center">Gráfico 4: Cronograma normativo según NFPA 10.</span>
+                </div>
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="bg-gray-900/90 border border-gray-800 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-2 text-amber-400">
+                            <i data-lucide="search" class="w-5 h-5"></i>
+                            <h4 class="font-bold text-white text-sm">Control Visual Mensual (Cada 30 Días)</h4>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">Verificación de acceso no obstruido, precintos intactos y presión en rango verde.</p>
+                    </div>
+                    <div class="bg-gray-900/90 border border-gray-800 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-2 text-blue-400">
+                            <i data-lucide="wrench" class="w-5 h-5"></i>
+                            <h4 class="font-bold text-white text-sm">Mantenimiento Técnico Anual (Cada 12 Meses)</h4>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">Desarme parcial, fluidez del agente extintor y pesaje del cartucho expulsor.</p>
+                    </div>
+                    <div class="bg-gray-900/90 border border-gray-800 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-2 text-emerald-400">
+                            <i data-lucide="activity" class="w-5 h-5"></i>
+                            <h4 class="font-bold text-white text-sm">Prueba Hidrostática (5 / 12 Años)</h4>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">Cada 5 años para CO2 y cada 12 años para Polvo Químico Seco (PQS).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 border-t border-gray-800 py-10 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p class="font-medium text-gray-400">O&G Control de Principios de Incendio • Sistema Interactivo de Ingeniería de Seguridad Industrial</p>
+            <p>Conforme a recomendaciones técnicas NFPA 10, NFPA 30, NFPA 11 y API RP 14G para instalaciones petroleras de Upstream.</p>
+        </div>
+    </footer>
+
+    <!-- Archivo JS Modular -->
+    <script src="script.js"></script>
+</body>
+</html>
